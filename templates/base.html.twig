@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <html lang="fr"></html>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
@@ -11,6 +13,14 @@
     </head>
     <body>
         {% block body %}
+            <main>
+                    <header></header>
+                    <div id="content-wrapper">
+                            {% block content_wrapper %}
+                            {% endblock %}
+                    </div>
+                    <footer></footer>
+            </main>
         {% endblock %}
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
