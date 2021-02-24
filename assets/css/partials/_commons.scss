@@ -1,0 +1,38 @@
+.headings{
+    margin-top: 0.5rem;
+}
+
+.form-group {
+    margin-top: 1rem;
+}
+
+.form-control {
+    min-height: 40px;
+    border-radius: 0.6rem;
+}
+
+.btn-primary {
+    border-radius: 1.8rem;
+    font-weight: $font-weight-bold;
+    background-color: $btn-color-primary;
+    border-color: $btn-color-primary;
+    &:hover , &:active{
+        background-color: $btn-color-hover;
+        border-color: $btn-color-hover;
+    }
+}
+
+
+a{
+    color : $body-color ;
+    text-decoration: $link-decoration;
+    &:hover , &:active {
+        text-decoration: $link-decoration;
+        color : $body-color ;
+    }
+    &.custom-link {
+        &:hover, &:active {
+            color : $link-color-custom;
+        } 
+    }
+}

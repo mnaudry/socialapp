@@ -14,12 +14,17 @@
     <body>
         {% block body %}
             <main>
-                    <header></header>
-                    <div id="content-wrapper">
-                            {% block content_wrapper %}
+                    <header>{% block header %} {% endblock %}</header>
+                    <div id="content-page-wrapper">
+                        {% block content_page_wrapper %}
+                            {% block page_header %}
+                                 <h1>Welcome!</h1>
                             {% endblock %}
+                            {% block page_content %}
+                            {% endblock %}
+                        {% endblock %}
                     </div>
-                    <footer></footer>
+                    <footer>{% block footer %} {% endblock %}</footer>
             </main>
         {% endblock %}
         {% block javascripts %}

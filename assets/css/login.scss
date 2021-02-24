@@ -1,0 +1,30 @@
+
+#login-page{
+
+    .login-logo {
+
+    }
+
+    .login-header{
+        margin-top :2rem;
+    }
+
+    .form-control {
+        max-width : 70%;
+    }
+
+    .forget-password {
+        margin-bottom:1rem;
+        font-weight: 500;
+        a{
+            display:block;
+            max-width: 70%;
+        }
+    }
+
+    button {
+        display:block;
+        min-width:70%;
+    }
+    
+}

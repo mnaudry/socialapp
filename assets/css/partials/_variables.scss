@@ -1,6 +1,37 @@
 
-$primary:       #5e7e79;
-$secondary:     #f88100;
+$body-color:                $gray-900;
+
+
+
+                        
+
+
+$primary:       #f88100;
+$secondary:     #5e7e79;
+
+
+
+$btn-color-primary:           $primary;
+$btn-color-hover:             #d16a02;
+
+
+$font-weight-lighter:         lighter !default;
+$font-weight-light:           300 !default;
+$font-weight-normal:          400 !default;
+$font-weight-bold:            700 !default;
+$font-weight-bolder:          bolder !default;
+
+
+
+
+
+$link-color:                              $gray-900;
+$link-decoration:                         none ;
+$link-hover-color:                        $gray-900;
+$link-hover-decoration:                   none ;
+
+
+$link-color-custom:                       $primary
 /*
 $success:       $green !default;
 $info:          $cyan !default;

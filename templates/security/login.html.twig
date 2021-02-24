@@ -6,30 +6,67 @@
 
 {% block title %}Log in!{% endblock %}
 
-{% block content_wrapper %}
-    <div class="container">
+
+
+{% block content_page_wrapper %}
+<div id="login-page" class="container">
+    {% block page_header %}
         <div class="row justify-content-center">
-            <div class="col-md-6 ">
-                <form method="post">
+            <div class="col-md-5 text-center login-header">
+                <a href="{#{{ path('app_index') }}#}" alt="LOBA logo login-logo"><img src="{{ asset('build/images/logo.svg') }}" class="logo" alt="LOBA logo" ></a>
+                <h1 class="h2 headings">Bienvenue sur Loba !</h1>
+                <h6 class="h6 headings text-muted">Echangez simplement avec vos proches</h6>
+            </div>
+        </div>
+    {% endblock %}
+    {% block page_content %}
+   
+        <div class="row justify-content-center">
+            <div class="col-md-5">
+                <form method="post" novalidate>
+                        <div class="form-group">
+                            <input placeholder="E-mail or Username" type="email" value="{{ last_username }}" name="email" class="form-control mx-auto" id="email" >
+                        </div>
+                        <div class="form-group">
+                            <input placeholder="Mot de passe" type="password" class="form-control mx-auto" name="password" id="password">
+                        </div>
+                        <div class="forget-password">
+                            <a class="mx-auto" href="" alt="mot de pass oublié">Mot de passe oublié ?</a>
+                        </div>
+
+                        <input type="hidden" name="_csrf_token"
+                        value="{{ csrf_token('authenticate') }}"
+                        >
+                        <button class="btn btn-lg btn-primary mx-auto" type="submit">
+                            Se connecter
+                        </button>
+
+                        <div>
+                            ou
+                        </div>
+
+                        <button class="btn btn-lg btn-primary mx-auto" type="button">
+                           Continuer avec facebook
+                        </button>
+
+                        <button class="btn btn-lg btn-primary mx-auto" type="button">
+                            Conitnuer avec google
+                        </button>
+
                     {% if error %}
                         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                     {% endif %}
-                
-                    {% if app.user %}
-                        <div class="mb-3">
-                            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-                        </div>
-                    {% endif %}
-                
-                    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-                    <label for="inputEmail">Email</label>
+                   
+                  {#  <label for="inputEmail">Email</label>
                     <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
                     <label for="inputPassword">Password</label>
                     <input type="password" name="password" id="inputPassword" class="form-control" required>
                 
                     <input type="hidden" name="_csrf_token"
                            value="{{ csrf_token('authenticate') }}"
-                    >
+                    >#}
+
+                   
                 
                     {#
                         Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
@@ -42,14 +79,13 @@
                         </div>
                     #}
                 
-                    <button class="btn btn-lg btn-primary" type="submit">
-                        Sign in
-                    </button>
+                  
                 </form>
             </div>
         </div>
-    </div>
-
+    
+    {% endblock %}
+</div>
 {% endblock %}
 
 {% block javascripts %}
