@@ -1,0 +1,53 @@
+#g-login-btn-id {
+   display: flex;
+   align-items: center;
+   background-color: rgb(239, 239, 239);
+   max-width: 70%;
+   min-height: 40px;
+   border-radius: 1.8rem;
+   border: none;
+   white-space: nowrap;
+   
+   &:hover {
+    cursor: pointer;
+   }
+
+   span.label {
+    font-family: serif;
+    font-weight: normal;
+  }
+  img.g-icon {
+    position: relative;
+    left: 1rem;
+    width: 20px;
+    height: 20px;
+  }
+  span.buttonText {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 700;
+ 
+    /* Use the Roboto font that is loaded in the <head> */
+    font-family: 'Roboto', sans-serif;
+  }
+}
+
+
+@media (max-width: 400px) { 
+
+  #g-login-btn-id {
+    max-width: 90%;
+  }
+
+}
+
+
+@media (min-width: 768px) and (max-width: 991.98px) { 
+
+  #g-login-btn-id {
+    max-width: 100%;
+  }
+}
+ 
+ 

@@ -1,20 +1,35 @@
 {% extends 'base.html.twig' %}
+{% block meta %}
+{{ parent() }}
+{#<meta name="google-signin-client_id" content="50754451830-t7qmcl622tbho5k20riecrp0psap01bq.apps.googleusercontent.com">#}
+{% endblock %}
 {% block stylesheets %}
     {{ parent() }}
     {{ encore_entry_link_tags('login') }}
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <style>
+      
+    </style>
 {% endblock %}
 
 {% block title %}Log in!{% endblock %}
 
+{% block after_opening_tag_body %}
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/fr_FR/sdk.js#xfbml=1&version=v10.0&appId=255497649456722&autoLogAppEvents=1" nonce="Z2klyV6R">
+</script>
+{#<script src="https://apis.google.com/js/platform.js" async defer></script>#}
+<script src="https://apis.google.com/js/api:client.js"></script>
 
+{% endblock %}
 
 {% block content_page_wrapper %}
 <div id="login-page" class="container">
     {% block page_header %}
         <div class="row justify-content-center">
             <div class="col-md-5 text-center login-header">
-                <a href="{#{{ path('app_index') }}#}" alt="LOBA logo login-logo"><img src="{{ asset('build/images/logo.svg') }}" class="logo" alt="LOBA logo" ></a>
-                <h1 class="h2 headings">Bienvenue sur Loba !</h1>
+                <a href="{#{{ path('app_index') }}#}" alt="LOBA logo login-logo"><img src="{{ asset('build/images/logo.svg') }}" class="logo" alt="LOBAA logo" ></a>
+                <h1 class="h2 headings">Bienvenue sur Lobaa !</h1>
                 <h6 class="h6 headings text-muted">Echangez simplement avec vos proches</h6>
             </div>
         </div>
@@ -22,7 +37,7 @@
     {% block page_content %}
    
         <div class="row justify-content-center">
-            <div class="col-md-5">
+            <div class="col-md-5 col-sm-12">
                 <form method="post" novalidate>
                         <div class="form-group">
                             <input placeholder="E-mail or Username" type="email" value="{{ last_username }}" name="email" class="form-control mx-auto" id="email" >
@@ -41,17 +56,18 @@
                             Se connecter
                         </button>
 
-                        <div>
+                        <div class="text-center login-or my-3">
                             ou
                         </div>
-
-                        <button class="btn btn-lg btn-primary mx-auto" type="button">
-                           Continuer avec facebook
-                        </button>
-
-                        <button class="btn btn-lg btn-primary mx-auto" type="button">
-                            Conitnuer avec google
-                        </button>
+                        <div class="fb-login-btn-wrapper my-3 mx-auto  text-center">
+                            <div style="display:block" class="fb-login-button" data-width="100%" data-size="large" data-button-type="continue_with" data-layout="rounded" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                        </div>
+                        <div class="g-login-btn-wrapper">
+                                <div id="g-login-btn-id" class="g-login-btn my-3 mx-auto">
+                                  <img class="g-icon" src="{{ asset('build/images/g-normal.svg')}}" alt="Google login Logo">
+                                  <span class="buttonText">Continuer avec Google</span>
+                            </div>
+                        </div>
 
                     {% if error %}
                         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -91,4 +107,5 @@
 {% block javascripts %}
 {{ parent() }}
 {{ encore_entry_script_tags('login') }}
+
 {% endblock %}
