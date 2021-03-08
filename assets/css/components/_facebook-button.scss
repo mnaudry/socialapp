@@ -1,0 +1,61 @@
+#fb-login-btn-id {
+    display: flex;
+    align-items: center;
+    background-color: #1877f2;
+    max-width: 70%;
+    min-height: 40px;
+    border-radius: 1.8rem;
+    border: none;
+    white-space: nowrap;
+    
+    &:hover {
+     cursor: pointer;
+    }
+    &:active , &:focus , &:hover {
+        background-color : #1163bc;
+    }
+ 
+    span.label {
+     font-family: serif;
+     font-weight: normal;
+   }
+   img.fb-icon {
+     position: relative;
+     left: 1rem;
+     width: 20px;
+     height: 20px;
+   }
+   span.buttonText {
+     display: block;
+     margin-left: auto;
+     margin-right: auto;
+     font-weight: 700;
+     color:#fff;
+  
+     /* Use the Roboto font that is loaded in the <head> */
+     font-family: 'Roboto', sans-serif;
+   }
+
+   &.disabled{
+    opacity: 0.65;
+   }
+ }
+ 
+ 
+ @media (max-width: 400px) { 
+ 
+   #fb-login-btn-id {
+     max-width: 90%;
+   }
+ 
+ }
+ 
+ 
+ @media (min-width: 768px) and (max-width: 991.98px) { 
+ 
+   #fb-login-btn-id {
+     max-width: 100%;
+   }
+ }
+  
+  

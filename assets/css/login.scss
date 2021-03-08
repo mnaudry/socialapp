@@ -1,6 +1,10 @@
-@import "./components/g-button.scss";
+@import "./components/google-button.scss";
 @import "./components/facebook-button.scss";
+@import "./components/loader";
 
+
+$primary:       #f88100;
+$secondary:     #5e7e79;
 
 #login-page{
 
@@ -29,6 +33,30 @@
         display:block;
         min-width:70%;
     }
+
+    .feedback {
+        display: none;
+        &.show-feedback {
+            display: block;
+        }
+    }
+
+    .valid-feedback , .invalid-feedback {
+        max-width:70%;
+    }
+
+    .login-loader {
+        display:none;
+        div {
+            &:after{
+                background:$primary;
+            }
+        }
+
+        &.loader-show {
+            display: block;
+        }
+    }
     
 }
 
@@ -41,6 +69,10 @@
 
         button {
             min-width:90%;
+        }
+
+        .valid-feedback , .invalid-feedback {
+            max-width : 90%;
         }
 
     }
@@ -57,6 +89,10 @@
 
         button {
             min-width:100%;
+        }
+
+        .valid-feedback , .invalid-feedback {
+            max-width : 100%;
         }
 
     }

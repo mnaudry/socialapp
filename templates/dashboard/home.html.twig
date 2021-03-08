@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block meta %}
+{{ parent() }}
+{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+{% endblock %}
+
+{% block title %}home{% endblock %}
+
+
+{% block content_page_wrapper %}
+<div id="home-page" class="container">
+    {% block page_header %}
+                <h1 class="h2 headings">homepage de Lobaa !</h1>
+    {% endblock %}
+    {% block page_content %}
+        <div>You are in the homepage </div>
+        {% if app.user %}
+        <a href="{{ path('app_logout') }}" alt="logout">logout</a>
+        {% endif %}
+    {% endblock %}
+</div>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+{% endblock %}

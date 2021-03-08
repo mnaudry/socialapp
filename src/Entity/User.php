@@ -5,10 +5,14 @@ namespace App\Entity;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @ORM\Table(name="`user`")
+ * @UniqueEntity(fields="email", message="This email address  is already taken, try another.")
+ * @UniqueEntity(fields="userName", message="This username is already taken, try another.")
  */
 class User implements UserInterface
 {
@@ -20,7 +24,9 @@ class User implements UserInterface
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=180)
+     * @ORM\Column(type="string", length=180, nullable=true,  unique=true)
+     * @Assert\Email(
+     *     message = "The email '{{ value }}' is not a valid email.")
      */
     private $email;
 
@@ -61,7 +67,7 @@ class User implements UserInterface
     private $address;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $gender;
 
@@ -71,9 +77,14 @@ class User implements UserInterface
     private $image;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true,  unique=true)
      */
     private $userName;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $facebookId;
 
     public function getId(): ?int
     {
@@ -243,6 +254,18 @@ class User implements UserInterface
     public function setUserName(?string $userName): self
     {
         $this->userName = $userName;
+
+        return $this;
+    }
+
+    public function getFacebookId(): ?string
+    {
+        return $this->facebookId;
+    }
+
+    public function setFacebookId(?string $facebookId): self
+    {
+        $this->facebookId = $facebookId;
 
         return $this;
     }

@@ -12,6 +12,11 @@
     cursor: pointer;
    }
 
+
+   &:active , &:focus , &:hover {
+    background-color : #cfd0d1;
+  }
+
    span.label {
     font-family: serif;
     font-weight: normal;
