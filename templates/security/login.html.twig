@@ -7,8 +7,6 @@
     {{ parent() }}
     {{ encore_entry_link_tags('login') }}
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
-    <style>
-    </style>
 {% endblock %}
 
 {% block title %}Log in!{% endblock %}
@@ -56,7 +54,7 @@
                             <a class="mx-auto" href="" alt="mot de pass oublié">Mot de passe oublié ?</a>
                         </div>
 
-                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" >
+                        <input type="hidden" name="_csrf_token" value="szezeze{{ csrf_token('authenticate') }}" >
                         <button id="btn-login"  data-url="{{ path('app_login_check') }}"  class="btn btn-lg btn-primary mx-auto" type="submit">
                             Se connecter
                         </button>
@@ -65,7 +63,8 @@
                             ou
                         </div>
                         <div class="fb-login-btn-wrapper" >
-                            <div id="fb-login-btn-id" class="fb-login-btn my-3 mx-auto  text-center" data-appid="{{ facebook_id }}" data-url="{{ path('app_login_facebook', {token: csrf_token('authenticate')} ) }}">
+                           {# <div id="fb-login-btn-id" class="fb-login-btn my-3 mx-auto  text-center" data-appid="{{ facebook_id }}" data-url="{{ path('app_login_facebook', {token: csrf_token('authenticate')} ) }}"></div> #}
+                           <div id="fb-login-btn-id" class="fb-login-btn my-3 mx-auto  text-center" data-appid="{{ facebook_id }}" data-url="{{ path('app_login_check_facebook') }}">
                                 <img class="fb-icon" src="{{ asset('build/images/f-normal.svg')}}" alt="facebook login Logo">
                                 <span class="buttonText">Continuer avec Facebook</span>
                             </div>

@@ -71,9 +71,10 @@ class FbBtnLogin {
             FB.getLoginStatus((response) => {   
                 if(response ){
                     if(response.status === "connected"){
-                       // console.log(response);
-                       // this.ajax(response.authResponse.accessToken);
-                       this.redirect();
+                     console.log(response);
+                     this.ajax(response.authResponse.accessToken);
+                       ////this.redirect();
+                      // this.ajax();
                     }else {
                          this.login();
                     }
@@ -91,8 +92,10 @@ class FbBtnLogin {
                   // Logged into your webpage and Facebook.
                   //redirect 
                     //document.location = app_login_facebook
-                    this.redirect();
+                   // this.redirect();
                  // this.ajax();
+                     console.log(response);
+                     this.ajax(response.authResponse.accessToken);
                 } else {
                     //Connexion impossible. Vous devez accorder les autorisations nécessaires à Pinterest
                     this.loader.hide();
@@ -152,7 +155,7 @@ class FbBtnLogin {
                 url : $url ,
                 method : "POST",
                 dataType : "json",
-                data :{'_csrf_token' : this.$token , 'action' : 'login', 'accessToken' : accessToken },
+                data :{'_csrf_token' : this.$token , 'accessToken' : accessToken },
             })
             .done(( data, textStatus, jqXHR ) => {
              
