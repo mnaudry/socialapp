@@ -8,7 +8,6 @@
     {{ encore_entry_link_tags('login') }}
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
     <style>
-      
     </style>
 {% endblock %}
 
@@ -118,7 +117,19 @@
 
 {% block javascripts %}
 {{ parent() }}
+<script>
+    window.fbAsyncInit = function() {
+        //console.log("call this");
+        FB.init({
+          appId            : document.getElementById('fb-login-btn-id').dataset.appid,
+          xfbml            : false,
+          version          : 'v10.0',
+          status           : true,
+          cookie           : true,
+        });
+    };
+</script>
+{#<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk/debug.js"></script>#}
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
 {{ encore_entry_script_tags('login') }}
-
 {% endblock %}

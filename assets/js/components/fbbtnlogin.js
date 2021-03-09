@@ -1,15 +1,15 @@
-
 class FbBtnLogin {
 
         constructor($form){
-          this.version = 'v10.0';
-          this.autoLogAppEvents = true ;
-          this.xfbml = true;
+      // this.version = 'v10.0';
+        //  this.autoLogAppEvents = true ;
+        //  this.xfbml = false;
          // this.$form = new FormLogin($form);
           this.$btn = $form.find('#fb-login-btn-id');
           this.$token = $form.find('input[name="_csrf_token"]').val();
          // this.$loader = new Loader($form.find('.login-loader'));
         //  this.$btnLogin = new BtnLogin_fb($form);
+       // console.log(FB);
 
         }
 
@@ -36,17 +36,19 @@ class FbBtnLogin {
 
         init(){
 
-            const id = this.$btn.data('appid');
+           // const id = this.$btn.data('appid');
            // console.log(this.version);
-            global.fbAsyncInit = () => {
+           /* global.fbAsyncInit = () => {
+                console.log("call this");
                 FB.init({
                   appId            : id,
-                  autoLogAppEvents : this.autoLogAppEvents,
+               //   autoLogAppEvents : this.autoLogAppEvents,
                   xfbml            : this.xfbml,
-                  version          : this.version
+                  version          : this.version,
+                  status           : true,
                 });
-
-            };
+                console.log("init finish");
+            };*/
 
 
             this.$btn.on("click",($event)=>{
@@ -64,7 +66,7 @@ class FbBtnLogin {
         }
 
         checkStateAndLogin(){
-            console.log(this.$token);
+            //console.log(this.$token);
           
             FB.getLoginStatus((response) => {   
                 if(response ){

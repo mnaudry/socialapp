@@ -1,7 +1,7 @@
 import '../css/login.scss';
 const $ =  require('jquery');
-const Login = require('./components/login');
 
+const Login = require('./components/login');
 
 $( document ).ready(function() {
 
