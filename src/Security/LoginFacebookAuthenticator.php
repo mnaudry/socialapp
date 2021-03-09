@@ -193,6 +193,17 @@ class LoginFacebookAuthenticator extends SocialAuthenticator implements Password
         }
 
         return new RedirectResponse($url);*/
+
+
+        $url = $this->urlGenerator->generate('app_homepage');
+        
+        if ($targetPath = $this->getTargetPath($request->getSession(), $providerKey)) {
+            $url = $targetPath ;
+        }
+
+        $success = [ "success" => [ "redirect_url" => $url ]];
+
+        return new JsonResponse($success, Response::HTTP_OK );
     }
 
     public function start(Request $request, AuthenticationException $authException = null)
