@@ -24,6 +24,7 @@ security:
                 entry_point: App\Security\LoginAuthenticator
             logout:
                 path: app_logout
+                success_handler: App\Logout\LogoutSuccessHandler
             
             remember_me:
                 secret:   '%kernel.secret%'

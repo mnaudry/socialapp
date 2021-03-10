@@ -54,7 +54,7 @@
                             <a class="mx-auto" href="" alt="mot de pass oublié">Mot de passe oublié ?</a>
                         </div>
 
-                        <input type="hidden" name="_csrf_token" value="szezeze{{ csrf_token('authenticate') }}" >
+                        <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" >
                         <button id="btn-login"  data-url="{{ path('app_login_check') }}"  class="btn btn-lg btn-primary mx-auto" type="submit">
                             Se connecter
                         </button>

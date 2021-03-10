@@ -113,7 +113,8 @@ class LoginFacebookAuthenticator extends SocialAuthenticator implements Password
         }
 
 
-        $facebookUser = $this->getFacebookClient()->fetchUserFromToken($credentials);
+        $facebookUser = $this->getFacebookClient()->fetchUserFromToken($credentials['accessToken']);
+
 
         $email = $facebookUser->getEmail();
 
@@ -134,7 +135,7 @@ class LoginFacebookAuthenticator extends SocialAuthenticator implements Password
 
         }
 
-        $this->session->set('accessTokenFb', $credentials);
+        $this->session->set('accessTokenFb', $credentials['accessToken']);
         $this->session->set('facebookId', $facebookUser->getId());
   
         return $user;

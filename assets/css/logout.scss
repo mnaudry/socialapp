@@ -1,0 +1,18 @@
+@import "./components/loader";
+
+
+$primary:       #f88100;
+$secondary:     #5e7e79;
+
+#logout-page {
+    .logout-loader{
+        display: block;
+
+        div{
+            &:after{
+                background:$primary;
+            }
+        }
+    }
+
+}

@@ -1,0 +1,35 @@
+ {% extends 'base.html.twig' %}
+ {% block title %}Logout{% endblock %}
+ {% block stylesheets %}
+ {{ parent() }}
+ {{ encore_entry_link_tags('logout') }}
+ {% endblock %}
+ {% block after_opening_tag_body %}
+    {% if call_facebook_logout %}
+        <div id="fb-root" data-appid="{{ app_id }}" data-redirect="{{ redirect_url }}"></div>
+        <script>
+            window.fbAsyncInit = function() {
+                //console.log("call this");
+                FB.init({
+                appId            : document.getElementById('fb-root').dataset.appid,
+                xfbml            : false,
+                version          : 'v10.0',
+                status           : true,
+                });
+            };
+        </script>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    {% endif %}
+ {% endblock %}
+ {% block content_page_wrapper %}
+    <div id="logout-page" class="container">
+        {% block page_header %}
+        {% endblock %}
+        {% block page_content %}
+            <div class="lds-spinner logout-loader  mx-auto mt-2"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+        {% endblock %}
+    </div>
+{% endblock %}
+{% block javascripts %}
+{{ encore_entry_script_tags('logout') }}
+{% endblock %}

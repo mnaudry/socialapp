@@ -71,7 +71,7 @@ class FbBtnLogin {
             FB.getLoginStatus((response) => {   
                 if(response ){
                     if(response.status === "connected"){
-                     console.log(response);
+                    // console.log(response);
                      this.ajax(response.authResponse.accessToken);
                        ////this.redirect();
                       // this.ajax();
@@ -94,7 +94,7 @@ class FbBtnLogin {
                     //document.location = app_login_facebook
                    // this.redirect();
                  // this.ajax();
-                     console.log(response);
+                    // console.log(response);
                      this.ajax(response.authResponse.accessToken);
                 } else {
                     //Connexion impossible. Vous devez accorder les autorisations nécessaires à Pinterest
@@ -104,14 +104,6 @@ class FbBtnLogin {
                   
                 }
               },{scope: 'public_profile,email'});
-        }
-
-
-        logout() {
-
-            FB.logout((response) => {
-                // Person is now logged out
-             });
         }
 
 
