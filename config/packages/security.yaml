@@ -21,6 +21,7 @@ security:
                 authenticators:
                     - App\Security\LoginAuthenticator
                     - App\Security\LoginFacebookAuthenticator
+                    - App\Security\LoginGoogleAuthenticator
                 entry_point: App\Security\LoginAuthenticator
             logout:
                 path: app_logout

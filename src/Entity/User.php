@@ -26,7 +26,7 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="string", length=180, nullable=true,  unique=true)
      * @Assert\Email(
-     *     message = "The email '{{ value }}' is not a valid email.")
+     * message = "The email '{{ value }}' is not a valid email.")
      */
     private $email;
 
@@ -85,6 +85,11 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $facebookId;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $googleId;
 
     public function getId(): ?int
     {
@@ -266,6 +271,18 @@ class User implements UserInterface
     public function setFacebookId(?string $facebookId): self
     {
         $this->facebookId = $facebookId;
+
+        return $this;
+    }
+
+    public function getGoogleId(): ?string
+    {
+        return $this->googleId;
+    }
+
+    public function setGoogleId(string $googleId): self
+    {
+        $this->googleId = $googleId;
 
         return $this;
     }

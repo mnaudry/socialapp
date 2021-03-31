@@ -39,6 +39,8 @@ class LogoutSuccessHandler implements LogoutSuccessHandlerInterface {
             ]));
        }
 
+       
+
       return new RedirectResponse($redirect_url);
 
     }

@@ -5,6 +5,9 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     facebook_client_id: '%env(OAUTH_FACEBOOK_ID)%'
+    google_client_id:   '%env(OAUTH_GOOGLE_CLIENT_ID)%'
+    google_secret_id:   '%env(OAUTH_GOOGLE_CLIENT_SECRET)%'
+    
 services:
     # default configuration for services in *this* file
     _defaults:
